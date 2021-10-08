@@ -1,0 +1,20 @@
+<form #form="ngForm" action="" (ngSubmit)="submit()" method="post">
+  <div>
+    <label for="nom">Enter the name: </label>
+    <input #nomInput="ngModel" type="text" name="nom" id="nom" required maxlength="30" [(ngModel)]="restaurant.nom">
+    <span *ngIf="nomInput.invalid && nomInput.errors && nomInput.errors.required" style="color: red">Le champ est requis</span>
+  </div>
+  <div>
+    <label for="adresse">Enter the address: </label>
+    <input #adresseInput="ngModel" type="text" name="adresse" id="adresse" required maxlength="50" minlength="5" [(ngModel)]="restaurant.adresse">
+    <span *ngIf="adresseInput.invalid && adresseInput.errors && adresseInput.errors.required" style="color: red">Le champ est requis</span>
+    <span *ngIf="adresseInput.invalid && adresseInput.errors && adresseInput.errors.minlength" style="color: red">Le champ est trop petit</span>
+  </div>
+  <div>
+    <label for="noteMoyenne">Enter the address: </label>
+    <input type="number" name="noteMoyenne" id="noteMoyenne" required maxlength="50" [(ngModel)]="restaurant.noteMoyenne">
+    </div>
+  <div>
+    <input type="submit" value="Subscribe!">
+  </div>
+</form>

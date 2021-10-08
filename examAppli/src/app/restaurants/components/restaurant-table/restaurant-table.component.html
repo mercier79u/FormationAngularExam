@@ -1,0 +1,15 @@
+<div *ngFor="let restaurant of restaurants">
+  <ul class="list-group" >
+    <li class="list-group-item">{{restaurant.id}}</li>
+    <li class="list-group-item active">{{restaurant.nom}}</li>
+    <li class="list-group-item">{{restaurant.adresse}}</li>
+    <span *ngIf="restaurant.noteMoyenne<0">
+      <li class="list-group-item">/</li>
+    </span>
+    <span *ngIf="restaurant.noteMoyenne>=0">
+      <li  [monEtoileDirective]="restaurant.noteMoyenne" class="list-group-item">{{restaurant.noteMoyenne}}</li>
+    </span>
+  </ul>
+  <a routerLink="/detailRestaurant"></a>
+  <br/>
+</div>
